@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import vuex from 'vuex'
+import Vuex from 'vuex'
 import * as getters from './getters'
 import mutations from './mutations'
 import actions from './actions'
@@ -17,5 +17,5 @@ export default new Vuex.Store({
     state,
     mutations,
     getters,
-    action
+    actions
 })
