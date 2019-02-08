@@ -3,14 +3,14 @@
     <!-- <ul class="navigation">
       <li><router-link v-bind:to="{ name: 'HelloWorld' }">hello</router-link></li>
       <li><router-link v-bind:to="{ name: 'channel' }">channel</router-link></li>
-    </ul>             -->
+    </ul>-->
     <router-view/>
-  </div>          
+  </div>
 </template>
 
 <script>
 export default {
-  namne: 'app'
+  namne: "app"
 };
 </script>
 
