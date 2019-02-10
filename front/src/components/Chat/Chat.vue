@@ -24,9 +24,7 @@ export default {
   },
   data() {
     return {
-      channels: [],
       message: ""
-      //   messages: []
     };
   },
   methods: {
