@@ -10,7 +10,8 @@ Vue.use(Vuex)
 
 //상태값
 const state = {
-    messages: []
+    messages: [],
+    channels: []
 }
 
 export default new Vuex.Store({
