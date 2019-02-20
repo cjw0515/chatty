@@ -2,10 +2,13 @@
 // state의 변경은 action에서 일어나는 것이 아니라 mutation에 커밋될 때 일어난다. 임의의 비동기 처리를 포함할 수 있다.
 
 import {
-    GET_CHANNELS,    
+    GET_CHANNELS, SET_MESSAGES,    
   } from './mutation-types'
 
   export default {
+    [SET_MESSAGES] ({commit}, message){
+      commit(SET_MESSAGES, message)
+    },
     [GET_CHANNELS] ({commit}) {
       let json = {
           channels: ["channel1", "channel2"]

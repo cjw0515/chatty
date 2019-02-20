@@ -9,7 +9,7 @@ export default {
     [GET_CHANNELS](state, channels) {
       state.channels = channels
     },
-    [SET_MESSAGES](state, messages) {
-      state.messages = messages
+    [SET_MESSAGES](state, message) {
+      state.messages.push(message)
     }
   }

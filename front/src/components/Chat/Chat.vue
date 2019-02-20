@@ -15,7 +15,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex"; // vuex에서 헬퍼함수로 사용. getters와 actions에 등록한 메서드를 매핑해준다.
-import { SET_MESSAGE, GET_CHANNELS } from "../../store/mutation-types";
+import { SET_MESSAGES, GET_CHANNELS } from "../../store/mutation-types";
 
 export default {
   name: "chat",
@@ -29,12 +29,13 @@ export default {
   },
   methods: {
     send_message() {
-      this.SET_MESSAGE(this.message);
+      // console.log(this.message);
+      this.SET_MESSAGES(this.message);
       this.message = "";
       //   this.messages.push(this.message);
       //   this.message = "";
     },
-    ...mapActions([SET_MESSAGE, GET_CHANNELS])
+    ...mapActions([SET_MESSAGES, GET_CHANNELS])
   },
   computed: {
     ...mapGetters(["messages", "channels"])
