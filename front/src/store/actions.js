@@ -9,12 +9,25 @@ import {
     [SET_MESSAGES] ({commit}, message){
       commit(SET_MESSAGES, message)
     },
+    // [GET_CHANNELS] ({commit}) {
+    //   let json = {
+    //       channels: ["channel1", "channel2"]
+    //   }      
+    //   commit(GET_CHANNELS, json.channels)
+    // },
     [GET_CHANNELS] ({commit}) {
-      let json = {
-          channels: ["channel1", "channel2"]
-      }      
-      commit(GET_CHANNELS, json.channels)
-    },
+      // fetch('https://us-central1-demoapp-1779c.cloudfunctions.net/v1/channels').then((response) => {
+      //   return response.json()
+      // }).then((json) => {
+      //   commit(GET_CHANNELS, json.channels)
+      // })
+      async function fetch_api(){
+        const response = await fetch('https://us-central1-demoapp-1779c.cloudfunctions.net/v1/channels')
+        const json = await response.json()
+        commit(GET_CHANNELS, json.channels)
+      }
+      fetch_api()
+    }    
   }
   
   
