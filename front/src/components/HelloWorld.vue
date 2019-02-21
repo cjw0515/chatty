@@ -1,5 +1,8 @@
 <template>
-  <div>helloworld</div>
+  <div>
+    helloworld
+    <router-link :to="{name: 'channel', params: ''}">channel보기</router-link>
+    </div>  
 </template>
 
 <script>

@@ -14,6 +14,11 @@ export default [
         component: HelloWorld
     },
     {
+        path:'/channel/',
+        name: 'channel',
+        component: Chat
+    },    
+    {
         path:'/channel/:cname',
         name: 'channel',
         component: Chat
