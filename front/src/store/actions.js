@@ -5,7 +5,7 @@ import {
     GET_CHANNELS, SET_MESSAGES,    
   } from './mutation-types'
 
-  export default {
+  export default {    
     [SET_MESSAGES] ({commit}, message){
       commit(SET_MESSAGES, message)
     },
@@ -21,8 +21,12 @@ import {
       // }).then((json) => {
       //   commit(GET_CHANNELS, json.channels)
       // })
+      
       async function fetch_api(){
-        const response = await fetch('https://us-central1-demoapp-1779c.cloudfunctions.net/v1/channels')
+        const prodApi = 'https://us-central1-demoapp-1779c.cloudfunctions.net/v1/'
+        const devApi = 'http://localhost:5001/chatty-f2692/us-central1/v1/'
+        
+        const response = await fetch('devApi')
         const json = await response.json()
         commit(GET_CHANNELS, json.channels)
       }
