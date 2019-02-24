@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  namne: "app"
+  name: "app"
 };
 </script>
 

@@ -23,8 +23,8 @@ import {
       // })
       
       async function fetch_api(){
-        const prodApi = 'https://us-central1-demoapp-1779c.cloudfunctions.net/v1/'
-        const devApi = 'http://localhost:5001/chatty-f2692/us-central1/v1/'
+        // const prodApi = 'https://us-central1-demoapp-1779c.cloudfunctions.net/v1/'
+        // const devApi = 'http://localhost:5001/chatty-f2692/us-central1/v1/'
         
         const response = await fetch('devApi')
         const json = await response.json()

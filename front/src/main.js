@@ -13,7 +13,7 @@ const router = new Router({
 
 Vue.config.productionTip = false
 //뷰 인스턴스 생성 객체에 router속성이 있다. 뷰라우터를 사용하려면 라우터 객체를 넘겨줘야한다.
-new Vue({  
+new Vue({      
   store,
   router,
   render: h => h(App)  
