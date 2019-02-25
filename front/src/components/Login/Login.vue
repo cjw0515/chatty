@@ -15,10 +15,13 @@ import * as firebaseui from "firebaseui";
 import uiconfig from "./uiConfig";
 
 let ui = new firebaseui.auth.AuthUI(firebase.auth());
-ui.start("#firebaseui-container", uiconfig);
 
 console.log(firebase.auth().currentUser);
 
-export default {};
+export default {
+  mounted: function() {
+    ui.start("#firebaseui-container", uiconfig);
+  }
+};
 </script>
 <style src="../../../node_modules/firebaseui/dist/firebaseui.css" />

@@ -3,9 +3,6 @@ import App from './App.vue'
 import Router from 'vue-router'
 import routes from './routes'
 import store from './store'
-import firebase from 'firebase/app'
-
-let app = '';
 
 Vue.use(Router)
 const router = new Router({
@@ -17,22 +14,10 @@ const router = new Router({
 Vue.config.productionTip = false
 //뷰 인스턴스 생성 객체에 router속성이 있다. 뷰라우터를 사용하려면 라우터 객체를 넘겨줘야한다.
 
-if(!app){
-  app = new Vue({      
-    store,
-    router,
-    render: h => h(App)  
-  }).$mount('#app')
-}
-
-firebase.auth().onAuthStateChanged(() => {
-  if(!app){
-    app = new Vue({      
-      store,
-      router,
-      render: h => h(App)  
-    }).$mount('#app')
-  }
-})
+new Vue({
+  store,
+  router,  
+  render: h => h(App),
+}).$mount('#app')
 
 
