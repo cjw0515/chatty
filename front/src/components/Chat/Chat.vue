@@ -1,5 +1,22 @@
 <template>
-  <ul class="chatt-list">
+  <div>
+    <div class="el-container">
+      <div class="el-aside">
+        <ul>
+          <li>채널1</li>
+          <li>채널1</li>
+        </ul>
+      </div>
+    </div>
+    <div class="el-container">
+      <div class="el-header">헤더</div>
+      <div class="el-main"></div>
+      <div class="el-footer">
+        <input type="text" class="el-input">
+      </div>
+    </div>
+  </div>
+  <!-- <ul class="chatt-list">
     <li v-for="(channel, index) in channels" :key="index">
       <router-link :to="{name: 'channel', params: {cname: channel}}">{{channel}}</router-link>
     </li>
@@ -10,7 +27,7 @@
     <div>{{$route.params.cname}}</div>
     <input type="text" v-model="message">
     <button v-on:click="send_message();">send</button>
-  </ul>
+  </ul>-->
 </template>
 
 <script>
@@ -43,10 +60,46 @@ export default {
 };
 </script>
 <style>
-.chatt-list {
+ul {
   list-style-type: none;
+  padding: 0;
 }
-.msg-list {
-  list-style-type: none;
+
+.el-header {
+  border-bottom: 1px solid black;
+}
+
+.el-header,
+.el-footer {
+  background-color: #ffffff;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+
+.el-aside {
+  background-color: #4a3a4a;
+  text-align: center;
+  width: 100px !important;
+}
+
+.el-aside a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.el-main {
+  background-color: #ffffff;
+  color: #333;
+  text-align: center;
+}
+
+.el-container {
+  height: 100vh;
+}
+
+.el-input {
+  width: 50%;
 }
 </style>

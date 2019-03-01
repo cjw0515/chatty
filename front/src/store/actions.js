@@ -26,9 +26,9 @@ import {
         // const prodApi = 'https://us-central1-demoapp-1779c.cloudfunctions.net/v1/'
         // const devApi = 'http://localhost:5001/chatty-f2692/us-central1/v1/'
         
-        const response = await fetch('devApi')
-        const json = await response.json()
-        commit(GET_CHANNELS, json.channels)
+        // const response = await fetch(prodApi)
+        // const json = await response.json()
+        commit(GET_CHANNELS, ['ch1','ch2'])
       }
       fetch_api()
     }    

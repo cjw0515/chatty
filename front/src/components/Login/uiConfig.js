@@ -2,10 +2,10 @@ import firebase from 'firebase/app'
 
 export default {
     callbacks: {
-      signInSuccessWithAuthResult: function(authResult) {//authResult, redirectUrl
+      signInSuccessWithAuthResult: function() {//authResult, redirectUrl
         // console.log(authResult)
         // console.log(redirectUrl)
-        console.log(firebase.auth().currentUser)
+        // console.log(firebase.auth().currentUser)
         return true;        
       },
       uiShown: function() {
