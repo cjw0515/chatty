@@ -1,7 +1,7 @@
 import HelloWorld from '../components/HelloWorld.vue'
 import Chat from '../components/Chat/Chat.vue'
 import Login from '../components/Login/Login.vue'
-
+import TodoContainer from '../components/todolist/TodoContainer.vue'
 
 /**
  * path : 도메인을 제외한 url 경로를 지정
@@ -24,5 +24,10 @@ export default [
         path:'/login',
         name: 'login',
         component: Login
-    }
+    },
+    {
+        path:'/todolist',
+        name: 'todolist',
+        component: TodoContainer
+    }    
 ]
