@@ -3,7 +3,7 @@
     <ul>
       <li v-for="(todoItem, idx) in propsdata" :key="idx">
         {{todoItem}}
-        <button v-on:click="deleteItem">삭제</button>
+        <button v-on:click="deleteItem(idx)">삭제</button>
       </li>
     </ul>
   </div>
@@ -13,9 +13,12 @@
 export default {
   props: ["propsdata"],
   methods: {
-    deleteItem: function() {
-      alert("삭제버튼 클릭");
+    deleteItem: function(index) {
+      this.$emit("removeTodo", index);
     }
+  },
+  mounted() {
+    console.log("mounted");
   }
 };
 </script>

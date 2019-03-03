@@ -13,7 +13,14 @@ export default {
     };
   },
   methods: {
-    inputTodo() {}
+    inputTodo() {
+      let value = this.newTodoItem;
+      this.$emit("addTodo", value);
+      this.clearInput();
+    },
+    clearInput() {
+      this.newTodoItem = "";
+    }
   }
 };
 </script>

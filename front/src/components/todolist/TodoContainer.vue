@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
     <TodoInput v-on:addTodo="addTodo"></TodoInput>
-    <TodoList v-bind:propsdata="todoItems"></TodoList>
+    <TodoList v-bind:propsdata="todoItems" v-on:removeTodo="removeTodo"></TodoList>
     <Footer></Footer>
   </div>
 </template>
@@ -22,6 +22,9 @@ export default {
   methods: {
     addTodo(todoItem) {
       this.todoItems.push(todoItem);
+    },
+    removeTodo(index) {
+      this.todoItems.splice(index, 1);
     }
   },
   components: {
