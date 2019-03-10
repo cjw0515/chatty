@@ -26,8 +26,10 @@ script:
 before_deploy:
   - cd $TRAVIS_BUILD_DIR/backend/  
 
-deploy:  
-  - firebase deploy --token $FIREBASE_TOKEN
+deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
 #https://docs.travis-ci.com/user/deployment/firebase/#generating-your-firebase-token
 
 # notifications:
