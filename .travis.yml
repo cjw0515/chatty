@@ -17,7 +17,7 @@ before_install:
 install:  
   - cd $TRAVIS_BUILD_DIR/functions/    
   - npm install
-  - cd $TRAVIS_BUILD_DIR/front/infinity/  
+  - cd $TRAVIS_BUILD_DIR/front/  
   - npm install
 
 script:
