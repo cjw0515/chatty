@@ -24,7 +24,7 @@ script:
   - npm run build
 
 before_deploy:
-  - cd $TRAVIS_BUILD_DIR/backend/  
+  - cd $TRAVIS_BUILD_DIR/  
 
 deploy:
   provider: firebase
