@@ -17,18 +17,18 @@ jobs:
   include:
     - stage: test1
       script: 
-        - echo $TRAVIS_TAG
-    - script: 
-        - echo $TRAVIS_TAG
-    - stage: test2
-      script: 
-        - echo $TRAVIS_BRANCH
-before_install: >  
+        >  
   if  [ 1 = 1 ]; then
       echo "succes!";      
     else
       echo "else";
   fi
+    - script: 
+        - echo $TRAVIS_TAG
+    - stage: test2
+      script: 
+        - echo $TRAVIS_BRANCH
+before_install: 
 install:  
 
 script:
