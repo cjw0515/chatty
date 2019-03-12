@@ -12,7 +12,6 @@ branches:
   - develop  
 #[skip <빌드스킵>]
 
-
 jobs:
   include:
     - stage: test1
