@@ -17,7 +17,7 @@ jobs:
   include:
     - stage: test1
       script: 
-        >  
+        
   if  [ 1 = 1 ]; then
       echo "succes!";      
     else
