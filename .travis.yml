@@ -12,26 +12,27 @@ branches:
   - develop  
 #[skip <빌드스킵>]
 
+
 jobs:
   include:
     - stage: test1
       script: 
         - echo $TRAVIS_TAG
     - script: 
-        >  
-      if  [ 1 = 1 ]; then
-          echo "succes!";      
-        else
-          echo "else";
-      fi
+        - echo $TRAVIS_TAG
     - stage: test2
       script: 
         - echo $TRAVIS_BRANCH
-before_install: 
+before_install: >  
+  if  [ 1 = 1 ]; then
+      echo "succes!";      
+    else
+      echo "else";
+  fi
 install:  
 
 script:
-    - echo "succes!"
+
 before_deploy:
 
 after_success:
