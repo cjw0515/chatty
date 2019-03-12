@@ -9,31 +9,22 @@ cache: npm
 branches:
   only:
   - master  
-
+  - develop  
 #[skip <빌드스킵>]
 
+
+
 before_install:
-  - npm install -g firebase-tools 
+  - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_TAG
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_BUILD_NUMBER
+  - echo $TRAVIS_REPO_SLUG
 install:  
-  - cd $TRAVIS_BUILD_DIR/functions/    
-  - npm install
-  - cd $TRAVIS_BUILD_DIR/front/  
-  - npm install
 
 script:
-  - npm run build
 
 before_deploy:
-  - cd $TRAVIS_BUILD_DIR/  
-  
+
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN    
 
-#deploy:
-#https://docs.travis-ci.com/user/deployment/firebase/#generating-your-firebase-token
-
-# notifications:
-#   email:
-#     recipients:
-#       - jojoldu@gmail.com
-    
