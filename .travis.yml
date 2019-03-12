@@ -25,8 +25,12 @@ jobs:
     - stage: test2
       script: 
         - echo $TRAVIS_BRANCH
-before_install:
-  
+before_install: >  
+  if  [ 1 = 1 ]; then
+      echo "succes!";      
+    else
+      echo "else";
+  fi
 install:  
 
 script:
