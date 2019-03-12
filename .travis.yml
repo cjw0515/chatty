@@ -18,7 +18,6 @@ jobs:
     - stage: test1
       script: 
         - echo $TRAVIS_BUILD_NUMBER
-      script: 
         - echo $TRAVIS_TAG
     - stage: test2
       script: 
