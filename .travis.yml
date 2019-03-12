@@ -13,13 +13,18 @@ branches:
 #[skip <빌드스킵>]
 
 
-
+jobs:
+  include:
+    - stage: test1
+      script: 
+        - echo $TRAVIS_BUILD_NUMBER
+      script: 
+        - echo $TRAVIS_TAG
+    - stage: test2
+      script: 
+        - echo $TRAVIS_BRANCH
 before_install:
-  - echo $TRAVIS_COMMIT
-  - echo $TRAVIS_TAG
-  - echo $TRAVIS_BRANCH
-  - echo $TRAVIS_BUILD_NUMBER
-  - echo $TRAVIS_REPO_SLUG
+  
 install:  
 
 script:
