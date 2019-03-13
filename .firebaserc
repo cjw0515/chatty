@@ -1,5 +1,6 @@
 {
-  "projects": {
-    "chatty": "chatty-f2692"
+  "projects": {    
+    "chatty": "chatty-f2692",
+    "production": "infinity-g-cd058"    
   }
 }

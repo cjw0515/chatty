@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase);
+const config = require('./runconfig.json')
+admin.initializeApp(functions.config(config.production).firebase);
 
 const express = require('express');
 const app = express();
@@ -69,8 +70,37 @@ function createChannel(cname){
 }
 
 app.get('/', (req, res) => {
-    res.send('hello wolrd');
+    res.send(config.production);
 })
+
+app.post('/todolist', (req, res) => {    
+    // res.send(req.body)
+    // let cname = req.params.cname;
+    let message = {
+        date: new Date().toJSON(),
+        todo: '밥하기',
+        user: '최종원'
+        // body: req.body.body,
+        // user: req.user        
+    };
+    let messagesRef = admin.database().ref(`todolist/`);
+    messagesRef.push(message);
+    res.header('Content-Type', 'application/json; charset=utf-8');
+    res.status(201).send({result: "ok"});
+});
+
+app.get('/todolist', (req, res) => {
+    let todoRef = admin.database().ref('todolist');
+    todoRef.once('value', (snapshot) => {
+        let items = new Array();
+        snapshot.forEach((childSnapshot) => {
+            let todo = childSnapshot;
+            items.push(todo);
+        })
+        res.header('Content-Type', 'application/json; charset=utf-8')
+        res.send({todoList: items});
+    })
+});
 
 app.post('/channels', (req, res) => {
     let cname = req.body.cname;
