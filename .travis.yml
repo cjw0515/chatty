@@ -20,10 +20,10 @@ jobs:
   include:
     - stage: install
       script: 
-        - cd $TRAVIS_BUILD_DIR/backend/functions/      
+        - cd $TRAVIS_BUILD_DIR/functions/      
         - npm install
     - script: 
-        - cd $TRAVIS_BUILD_DIR/front/infinity/  
+        - cd $TRAVIS_BUILD_DIR/front/  
         - npm install
         - if [ $TRAVIS_BRANCH = "master" ]; then
               echo "succes!";      
