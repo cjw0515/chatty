@@ -1,7 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const config = require('./runconfig.json')
-admin.initializeApp(functions.config(config.production).firebase);
+admin.initializeApp(functions.config().firebase);
 
 const express = require('express');
 const app = express();
