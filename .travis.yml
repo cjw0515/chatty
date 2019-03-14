@@ -40,6 +40,7 @@ jobs:
 
     - stage: front build
       script: 
+        - cd $TRAVIS_BUILD_DIR/front/  
         - npm run build  
 
     - stage: deploy
