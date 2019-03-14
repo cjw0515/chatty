@@ -10,43 +10,34 @@ branches:
   only:
   - master  
   - develop  
+
 #[skip <빌드스킵>]
 
+#환경 초기화
 before_install:   
-  
+  - npm install -g firebase-tools
+  - cd $TRAVIS_BUILD_DIR/  
+  - |
+    if [ $TRAVIS_BRANCH = "master" ]; then
+      firebase use chatty      
+    else
+      firebase use production
+    fi
+
+    firebase functions:config:get > front/src/config/runtimeconfig.json  
 install:  
-
-jobs:
-  include:
-    - stage: initialize env
-      script: 
-        - npm install -g firebase-tools
-        - cd $TRAVIS_BUILD_DIR/  
-        - |
-          if [ $TRAVIS_BRANCH = "master" ]; then
-            firebase use chatty      
-          else
-            firebase use production
-          fi
-
-          firebase functions:config:get > front/src/config/runtimeconfig.json
-    - stage: install
-      script: 
-        - cd $TRAVIS_BUILD_DIR/functions/      
-        - npm install
-    - script: 
-        - cd $TRAVIS_BUILD_DIR/front/  
-        - npm install
-
-    - stage: front build
-      script: 
-        - cd $TRAVIS_BUILD_DIR/front/  
-        - npm run build  
-
-    - stage: deploy
-      before_deploy:
-        - cd $TRAVIS_BUILD_DIR/backend/  
-      after_success:
-        - firebase deploy --token $FIREBASE_TOKEN        
+#백엔드 의존성 설치
+  - cd $TRAVIS_BUILD_DIR/functions/      
+  - npm install
+#프론트엔드 의존성 설치  
+  - cd $TRAVIS_BUILD_DIR/front/  
+  - npm install  
+#프론트엔드 빌드  
+  - npm run build  
+before_deploy:
+  - cd $TRAVIS_BUILD_DIR/backend/  
+after_success:
+#배포
+  - firebase deploy --token $FIREBASE_TOKEN        
 
 
