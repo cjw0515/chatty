@@ -34,11 +34,15 @@ jobs:
     - script: 
         - cd $TRAVIS_BUILD_DIR/front/  
         - npm install
+
     - stage: front build
       script: 
         - npm run build  
-before_deploy:
-  - cd $TRAVIS_BUILD_DIR/backend/  
 
-after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+    - stage: deploy
+      before_deploy:
+        - cd $TRAVIS_BUILD_DIR/backend/  
+      after_success:
+        - firebase deploy --token $FIREBASE_TOKEN        
+
+
