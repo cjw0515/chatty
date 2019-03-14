@@ -16,24 +16,19 @@ branches:
 jobs:
   include:
     - stage: install1
-      script:         
-        if true
-          echo "true"
-        else
-          echo "false"
-        end
-    
-  # if  [ 1 = 1 ]; then
-  #     echo "succes!";      
-  #   else
-  #     echo "else";
-  # fi
+      script: 
+        - echo $TRAVIS_TAG
     - script: 
         - echo $TRAVIS_TAG
     - stage: install2
       script: 
         - echo $TRAVIS_BRANCH
-before_install: 
+before_install: >  
+  if  [ 1 = 1 ]; then
+      echo "succes!";      
+    else
+      echo "else";
+  fi
 install:  
 
 script:
