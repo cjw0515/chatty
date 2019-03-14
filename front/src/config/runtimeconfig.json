@@ -1,22 +1,4 @@
 {
-  "develop": {
-    "projectid": "chatty-f2692",
-    "authdomain": "chatty-f2692.firebaseapp.com",
-    "messagingsenderid": "5597057996",
-    "databaseurl": "https://chatty-f2692.firebaseio.com",
-    "apikey": "AIzaSyDgt6zindww-GZFIOLXsVcEhZijs631Rcw"
-  },
-  "production": {
-    "databaseurl": "https://infinity-g-cd058.firebaseio.com",
-    "apikey": "AIzaSyCFKGHwMl2Emtw7jLswPvV98S-SWvxmNyg",
-    "projectid": "infinity-g-cd058",
-    "authdomain": "infinity-g-cd058.firebaseapp.com",
-    "messagingsenderid": "549683224455",
-    "storagebucket": "infinity-g-cd058.appspot.com"
-  },
-  "test": {
-    "testconfig": {
-      "test": "test"
-    }
+  "runtimeconfig": {
   }
 }

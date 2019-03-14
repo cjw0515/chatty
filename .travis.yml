@@ -17,10 +17,11 @@ before_install:
   - cd $TRAVIS_BUILD_DIR/  
   - |
     if [ $TRAVIS_BRANCH = "master" ]; then
-      firebase use chatty
+      firebase use chatty      
     else
       firebase use production
     fi
+    firebase firebase functions:config:get > front/src/config/runtimeconfig.json
   
 install:  
 jobs:
