@@ -15,10 +15,10 @@ branches:
 before_install:   
   - npm install -g firebase-tools
   - cd $TRAVIS_BUILD_DIR/  
-  - if [ $TRAVIS_BRANCH = "master" ]; then
-      firebase use chatty
+    if [ $TRAVIS_BRANCH = "master" ]; then
+      - firebase use chatty
     else
-      firebase use production
+      - firebase use production
     fi
   
 install:  
