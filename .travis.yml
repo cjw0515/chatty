@@ -27,7 +27,7 @@ jobs:
         - npm install
         - if [ $TRAVIS_BRANCH = "master" ]; then
               echo "succes!";      
-          else if [ $TRAVIS_BRANCH = "develop" ]; then
+          else then
               echo "else";
           fi
     - stage: install2
