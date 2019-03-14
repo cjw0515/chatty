@@ -21,7 +21,7 @@ before_install:
     else
       firebase use production
     fi
-    firebase firebase functions:config:get > front/src/config/runtimeconfig.json
+    firebase functions:config:get > front/src/config/runtimeconfig.json
   
 install:  
 jobs:
