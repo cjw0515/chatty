@@ -16,11 +16,11 @@ before_install:
   - npm install -g firebase-tools
   - cd $TRAVIS_BUILD_DIR/
   - if [ $TRAVIS_BRANCH = "master" ]; then
-        echo "succes!";      
+        firebase use chatty
     else
-        echo "else";
+        firebase use production
     fi
-  - firebase use
+  
 install:  
 jobs:
   include:
