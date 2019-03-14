@@ -21,6 +21,7 @@ before_install:
     else
       firebase use production
     fi
+
     firebase functions:config:get > front/src/config/runtimeconfig.json
   
 install:  
@@ -33,12 +34,11 @@ jobs:
     - script: 
         - cd $TRAVIS_BUILD_DIR/front/  
         - npm install
-    - stage: install2
+    - stage: front build
       script: 
-        - echo $TRAVIS_BRANCH
-script:
-
+        - npm run build  
 before_deploy:
+  - cd $TRAVIS_BUILD_DIR/backend/  
 
 after_success:
-
+  - firebase deploy --token $FIREBASE_TOKEN
