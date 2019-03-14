@@ -12,29 +12,27 @@ branches:
   - develop  
 #[skip <빌드스킵>]
 
+before_install: 
+  - npm install -g firebase-tools
 
+install:  
 jobs:
   include:
-    - stage: install1
+    - stage: install
       script: 
-        - if  [ 1 = 1 ]; then
+        - cd $TRAVIS_BUILD_DIR/backend/functions/      
+        - npm install
+    - script: 
+        - cd $TRAVIS_BUILD_DIR/front/infinity/  
+        - npm install
+        - if [ $TRAVIS_BRANCH = "master" ]; then
               echo "succes!";      
-            else
+          else if [ $TRAVIS_BRANCH = "develop" ]; then
               echo "else";
           fi
-    - script: 
-        - echo $TRAVIS_TAG
     - stage: install2
       script: 
         - echo $TRAVIS_BRANCH
-before_install: >  
-  if  [ 1 = 1 ]; then
-      echo "succes!";      
-    else
-      echo "else";
-  fi
-install:  
-
 script:
 
 before_deploy:
